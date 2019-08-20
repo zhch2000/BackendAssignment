@@ -26,7 +26,7 @@ func addAction(actionJson string, ch chan<-string) {
     //actionJson := `{"action": "jump","time":100}`
 	var actionJ ActionJson 
 	json.Unmarshal([]byte(actionJson), &actionJ)
-	fmt.Printf("Action: %s, Time: %d\n", actionJ.Action, actionJ.Time)
+	fmt.Printf("Parse Input => Action: %s, Time: %d\n", actionJ.Action, actionJ.Time)
     //if err!=nil{
         //fmt.Print("Error:",err)
     //}
@@ -41,12 +41,12 @@ func addAction(actionJson string, ch chan<-string) {
         array := [2]int{1, actionJ.Time}
         actions[actionJ.Action] = array           
     }
-    ch <- fmt.Sprintf("%d %d %s", actions[actionJ.Action][0], actions[actionJ.Action][1], actionJ.Action)
+    ch <- fmt.Sprintf("Action Added: %s, %d, total count: %d, total time: %d", actionJ.Action, actionJ.Time, actions[actionJ.Action][0], actions[actionJ.Action][1])
 }
 
 func getStats(ch chan<-string) {
     buf := bytes.Buffer{}      
-  
+    buf.WriteString("Get Stats:\n[\n")
     for key, action := range actions {
         buf.WriteString("{\"action\":\"")
         buf.WriteString(key)
@@ -54,6 +54,7 @@ func getStats(ch chan<-string) {
         buf.WriteString(strconv.FormatFloat(float64(action[1])/float64(action[0]),'f',2,64))  // 2 decimal Avg            
         buf.WriteString("},\n")
     }
+    buf.WriteString("]")
     result := buf.String()
     
     ch <- fmt.Sprintf(result)
@@ -71,4 +72,6 @@ func main() {
     
     go getStats(ch)
     fmt.Println(<-ch)
+    
+    //go run main.go "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"run\", \"time\":75}" "{\"action\":\"jump\", \"time\":200}"
 }
