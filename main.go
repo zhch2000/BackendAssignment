@@ -4,7 +4,7 @@ package main
 *   Date Created:  08/19/2019
 *   Description:   Main GO Class for Backend Assignment
 *
-*   08/10/2019  CH  Created main function   
+*   08/10/2019  CH  Added main, addAction, getStats function   
 ==============================================================================*/
 
 import (
