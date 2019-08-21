@@ -1,6 +1,6 @@
 ﻿# Backend Assignment in Golang
 
-Pre-requisition to test this assignment:
+Pre-requisition to build and test this assignment:
 
 1. Having GO installed on your system. Refer to https://golang.org/dl/ to download and intall GO
 
@@ -8,17 +8,19 @@ Pre-requisition to test this assignment:
 
 3. Clone this repository under your GOPATH
 
+Step to build and test this assignment:
 
-Step to test this assignment:
+1. enter the assignment root folder which includes main.go as current working folder. 
 
-1. Build exe
+2. Build exe, run the follow from command line, it should build an exe file such as BackendAssignment.exe in windows   
 
-Go build
+go build
 
-2. Run from main.go
+3. Run from main.go with 3 JSON input strings, run the following from command line
 
 go run main.go "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"run\", \"time\":75}" "{\"action\":\"jump\",\"time\":200}"
 
+4. The results looks like the follow. The output sequence for addAction may be different since those are concurrent calls 
 First getStats Call returns:
 []
 Inside addAction => Parsed Input JSON String: {"action":"run", "time":75}. Action: run, Time: 75
@@ -30,8 +32,11 @@ addAction Call returns No error
 Second getStats Call returns:
 [{"action":"run","avg":75},{"action":"jump","avg":150}]
 
-3. Run from BackendAssignment.exe
+4. Run from Execution file such as BackendAssignment.exe with the follow from command line
 
+BackendAssignment "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"run\", \"time\":75}" "{\"action\":\"jump\",\"time\":200}"
+
+5. Test cases (Working in Progress)
 Test Case 1:
 
 BackendAssignment "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"run\", \"time\":75}" "{\"action\":\"jump\",\"time\":200}"
