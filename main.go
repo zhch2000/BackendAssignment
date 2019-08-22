@@ -103,7 +103,7 @@ func main() {
         go addAction(action, ch1)
     }
     
-    // Make a concurrent call to getStats before unblock from the previous addAction calls and Print results
+    // Make a concurrent call to getStats before previous addAction calls complete
     go getStats(ch2)
     fmt.Printf("First getStats Call returns: \n%s\n", <-ch2)
     
@@ -118,7 +118,7 @@ func main() {
         
     }
     
-    // Make a concurrent call to getStats after unblock and Print results
+    // Make a concurrent call to getStats after recieve all returns from previous addAction calls
     go getStats(ch2)
     fmt.Printf("Second getStats Call returns: \n%s\n", <-ch2)
 }

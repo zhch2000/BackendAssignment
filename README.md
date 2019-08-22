@@ -3,9 +3,9 @@ This is my first assignment writen in Golang
 
 ## Pre-requisition to build and test this assignment:
     
-1. Having GO installed on your system. Refer to https://golang.org/dl/ to download and intall GO
+1. Ensure GO is installed on your system. Refer to https://golang.org/dl/ to download and install GO
     
-2. Make sure set GOPATH and test your installation follow the instruction on the download site
+2. Make sure to set GOPATH and test your installation follow the instructions on the download site
     
 3. Clone this repository under your GOPATH
     
@@ -13,7 +13,7 @@ This is my first assignment writen in Golang
     
 1. Enter the assignment root folder which includes main.go as current working folder. 
     
-2. Build binary, run the follow from command line, it should build an exe file such as BackendAssignment.exe in windows   
+2. Build binary, run the follow from command line, it should build an exe file such as BackendAssignment.exe in Windows
 ```
 go build
 ```
@@ -54,7 +54,7 @@ go run main.go "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"run\", \"tim
 ```    
 go run main.go "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"jump\", \"time\":75}" "{\"action\":\"jump\",\"time\":2s01}"    
 ```
-Results
+Results:
 ```
 First getStats Call returns:    
 []    
