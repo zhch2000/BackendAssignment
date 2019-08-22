@@ -25,6 +25,7 @@ How to pass multiple serialized JSON strings in command line:
 2. The double quotation marks inside JSON string need to be replaced with ```\"```    
 
 #### Example
+main.go is able to take any number of JSON Strings as arguments. The following example has 3 input arguments
 ```
 go run main.go "{\"action\":\"jump\", \"time\":100}" "{\"action\":\"run\", \"time\":75}" "{\"action\":\"jump\",\"time\":200}"
 ```
